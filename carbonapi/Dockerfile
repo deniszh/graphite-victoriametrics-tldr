@@ -1,13 +1,13 @@
 FROM golang:alpine as builder
 
 ENV GOPATH=/opt/go
-ENV CARBONAPI_VERSION=0.12.6
+ENV CARBONAPI_VERSION=master
 
 RUN \
   apk update  --no-cache && \
   apk upgrade --no-cache && \
   apk add g++ git make musl-dev cairo-dev
-  
+
 WORKDIR ${GOPATH}
 
 RUN \
@@ -32,6 +32,6 @@ RUN apk --no-cache add ca-certificates cairo
 WORKDIR /
 
 COPY --from=builder /tmp/carbonapi ./usr/bin/carbonapi
-COPY ./carbonapi.prometheus.yaml ./etc/carbonapi.yml
+COPY ./carbonapi.vm.yaml ./etc/carbonapi.yml
 
 CMD ["carbonapi", "-config", "/etc/carbonapi.yml"]
