@@ -1,4 +1,4 @@
-listen: "localhost:8081"
+listen: "0.0.0.0:8080"
 concurency: 1000
 cache:
   type: "mem"
@@ -63,7 +63,7 @@ expireDelaySec: 10
 logger:
   - logger: ""
     file: "stderr"
-    level: "debug"
+    level: "error"
     encoding: "console"
     encodingTime: "iso8601"
     encodingDuration: "seconds"

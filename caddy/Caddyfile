@@ -1,0 +1,7 @@
+localhost
+
+root * /data
+file_server
+
+reverse_proxy /render/* carbonapi:8080
+reverse_proxy /metrics/* carbonapi:8080

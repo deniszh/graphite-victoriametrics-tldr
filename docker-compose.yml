@@ -68,3 +68,12 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
 
+  caddy:
+    image: caddy:latest
+    ports:
+      - 80:80
+      - 443:443
+      - 2019:2019
+    volumes:
+      - ./caddy/static:/data
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
