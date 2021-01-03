@@ -14,3 +14,4 @@ storage
 _trial_temp
 htmlcov
 *.swp
+caddy/static/caddy/*
